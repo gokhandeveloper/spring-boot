@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thmeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Employee id</th>
+        <th>firstName</th>
+        <th>lastName</th>
+        <th>position</th>
+    </tr>
+    <tr th:each="staff:${staffs}">
+        <td th:text="${staff.id}">Employee id</td>
+        <td th:text="${staff.firstName}">Name</td>
+        <td th:text="${staff.lastName}">lastName</td>
+        <td th:text="${staff.position}">position</td>
+    </tr>
+
+</table>
+
+
+</body>
+</html>
