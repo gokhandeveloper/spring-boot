@@ -1,4 +1,4 @@
-package com.gokhand.explorecali.explorecali.models;
+package com.example.ec.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;

@@ -1,3 +1,5 @@
+-- noinspection SqlNoDataSourceInspectionForFile
+
 CREATE TABLE ROOM(
   ROOM_ID BIGSERIAL PRIMARY KEY,
   NAME VARCHAR(16) NOT NULL,
