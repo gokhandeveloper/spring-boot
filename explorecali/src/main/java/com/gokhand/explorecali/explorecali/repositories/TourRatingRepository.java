@@ -9,9 +9,9 @@ import java.util.List;
 import java.util.Optional;
 
 @RepositoryRestResource(exported = false)
-public interface TourRatingRepository  extends CrudRepository<TourRating, TourRatingPk> {
+public interface TourRatingRepository  extends CrudRepository<TourRating, String> {
 
-    List<TourRating> findByPkTourId(Integer tourId);
-    Optional<TourRating> findByPkTourIdAndPkCustomerId(Integer tourId, Integer customer);
+    List<TourRating> findByPkTourId(String tourId);
+    Optional<TourRating> findByPkTourIdAndPkCustomerId(String tourId, Integer customerId);
 
 }
