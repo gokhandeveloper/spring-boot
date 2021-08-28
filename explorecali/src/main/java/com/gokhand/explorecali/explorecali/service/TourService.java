@@ -1,13 +1,13 @@
 package com.gokhand.explorecali.explorecali.service;
 
-import com.gokhand.explorecali.explorecali.models.Difficulty;
-import com.gokhand.explorecali.explorecali.models.Region;
 import com.gokhand.explorecali.explorecali.models.Tour;
 import com.gokhand.explorecali.explorecali.models.TourPackage;
 import com.gokhand.explorecali.explorecali.repositories.TourPackageRepository;
 import com.gokhand.explorecali.explorecali.repositories.TourRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Map;
 
 @Service
 public class TourService {
@@ -23,16 +23,12 @@ public class TourService {
         this.tourPackageRepository = tourPackageRepository;
     }
 
-    public Tour createTour(String title, String description,
-                           String blurb, Integer price, String duration,
-                           String bullets, String keywords, String tourPackageName,
-                           Difficulty difficulty, Region region){
-
+    public Tour createTour(String title, String tourPackageName,
+                           Map<String, String> details){
         TourPackage tourPackage =
                 tourPackageRepository.findByName(tourPackageName)
-                .orElseThrow(() -> new RuntimeException("Package does not exist"));
-       return tourRepository.save(new Tour(title,description,blurb,price,
-                duration,bullets,keywords,tourPackage,difficulty,region));
+                .orElseThrow(() -> new RuntimeException("Tour package does not exist"));
+       return tourRepository.save(new Tour(title,tourPackage,details));
 
     }
     public long total() {
